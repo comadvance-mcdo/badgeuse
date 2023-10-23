@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr" class="bg-gray-200">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badgeuse comadvance</title>
+    <link rel="stylesheet" href="assets/css/output.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+
+
+<body x-data="presenceTable()" x-init="init">
+
+
+    <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
+        type="button"
+        class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path clip-rule="evenodd" fill-rule="evenodd"
+                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+            </path>
+        </svg>
+    </button>
+
+    <aside id="default-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+            <ul class="space-y-2 font-medium">
+                <li>
+                    <img src="assets/images/logo.png" class="w-full">
+                </li>
+                <li class="text-green-800 font-black">
+                    <a href="credit_time.html"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 22 21">
+                            <path
+                                d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                            <path
+                                d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                        </svg>
+                        <span class="ml-3 text-green-800 font-black">crédit temps</span>
+                        <div id="credit_temp">
+                            <span
+                                class="inline-flex items-center w-4 h-4 p-3 ml-3 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">
+                            </span>
+                        </div>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="presence.html"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 22 21">
+                            <path
+                                d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
+                            <path
+                                d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                        </svg>
+                        <span class="ml-3">tableau de présence</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="accueil.html"
+                        class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 18 18">
+                            <path
+                                d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+                        </svg>
+                        <span class="flex-1 ml-3 whitespace-nowrap">Badgeuse</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="p-4 sm:ml-64">
+        <h1 class="text-2xl text-center">Tableau de présence</h1>
+        <div class="flex justify-center items-center mb-4">
+            <button x-on:click="previousMonth" class="p-2 rounded-lg bg-gray-200 hover:bg-gray-300">&#8592;</button>
+            <span class="mx-4"></span>
+            <button x-on:click="nextMonth" class="p-2 rounded-lg bg-gray-200 hover:bg-gray-300">&#8594;</button>
+        </div>
+        <div id="errorContainer"></div>
+        <div id="updateContainer"></div>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
+            <!-- Tableau -->
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">Jour</th>
+                        <template x-for="user in users">
+                            <th scope="col" class="px-6 py-3 text-center" x-text="user.username"></th>
+                        </template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="day in days">
+                        <tr
+                            :class="{'bg-gray-200 border-b dark:bg-gray-800 dark:border-gray-700 dark:bg-gray-700': day.isWeekendOrHoliday, 'bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600': !day.isWeekendOrHoliday}">
+                            <td class="px-6 py-4" x-text="day.formattedDate"></td>
+                            <template x-for="user in users">
+                                <td :class="getAbsenceColor(getAbsenceReason(day.dayNumber, user.id))"
+                                    x-text="getAbsenceReason(day.dayNumber, user.id)" class="px-6 py-4 text-center">
+                                </td>
+                            </template>
+                        </tr>
+                    </template>
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+    <script>
+        const userId = sessionStorage.getItem("user_id");
+        if (!userId) {
+            window.location = 'index.html';  // Si pas de token, retour à la page de connexion
+        }
+
+
+        function fetchCreditTimeForUser(userId) {
+            return fetch(`https://x8ki-letl-twmt.n7.xano.io/api:jZfRiwME/comptetempstotal?utilisateurs_id=${userId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        displayCreditTime(data[0].hourTime); // Appelons une fonction pour afficher la valeur
+                    } else {
+                        console.error("Aucune donnée reçue de la BDD");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erreur lors de la récupération du crédit temps:", error);
+                });
+        }
+        function minutesToHHMM(minutes) {
+            const sign = minutes < 0 ? '-' : '+';
+            const absMinutes = Math.abs(minutes);
+            const hh = Math.floor(absMinutes / 60);
+            const mm = absMinutes % 60;
+            return `${sign}${hh}h${String(mm).padStart(2, '0')}`;
+            console.log(`Transformed Time: ${hours}h${minutes}m`);
+        }
+        function displayCreditTime(minutes) {
+            const element = document.querySelector("#credit_temp span"); // Sélectionnez l'élément que vous souhaitez mettre à jour
+            if (element) {
+                const formattedTime = minutesToHHMM(minutes); // Convertissez les minutes en format hh:mm
+                element.textContent = formattedTime; // Mettez à jour le contenu textuel de l'élément
+            } else {
+                console.error("Élément pour afficher le temps de crédit non trouvé.");
+            }
+        }
+
+        // À la fin du chargement du DOM, exécutez la fonction fetchCreditTimeForUser
+        document.addEventListener("DOMContentLoaded", function () {
+            const userId = sessionStorage.getItem("user_id");
+            fetchCreditTimeForUser(userId);
+        });
+
+
+        function presenceTable() {
+            return {
+                days: [],
+                users: [],
+                absences: [],
+                currentDate: new Date(),
+
+                init() {
+                    this.initializeDays();
+                    this.fetchUsers();
+                },
+
+                dayOfYear(date) {
+                    const start = new Date(date.getFullYear(), 0, 0);
+                    const diff = date - start + (start.getTimezoneOffset() - date.getTimezoneOffset()) * 60 * 1000;
+                    const oneDay = 1000 * 60 * 60 * 24;
+                    return Math.floor(diff / oneDay);
+                },
+
+                initializeDays() {
+                    const year = this.currentDate.getFullYear();
+                    const month = this.currentDate.getMonth();
+                    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                    const holidays = [
+                        new Date(year, 0, 1),  // Jour de l'An
+                        new Date(year, 4, 1),  // Fête du Travail
+                        new Date(year, 6, 14), // Fête nationale
+                        new Date(year, 10, 11) // Jour d'Armistice
+                        // ... ajoutez d'autres jours si nécessaire
+                    ];
+
+                    this.days = [...Array(daysInMonth)].map((_, i) => {
+                        const date = new Date(year, month, i + 1);
+                        const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+                        const isHoliday = holidays.some(holiday =>
+                            holiday.getDate() === date.getDate() &&
+                            holiday.getMonth() === date.getMonth() &&
+                            holiday.getFullYear() === date.getFullYear()
+                        );
+
+                        return {
+                            fullDate: date,
+                            dayNumber: this.dayOfYear(date),
+                            formattedDate: `${date.toLocaleDateString('fr-FR', { weekday: 'short' })} ${date.getDate()} ${date.toLocaleDateString('fr-FR', { month: 'short' })}`,
+                            isWeekendOrHoliday: isWeekend || isHoliday
+                        };
+                    });
+                },
+                getAbsenceColor(reason) {
+                    switch (reason) {
+                        case 'CP':
+                            return 'bg-green-400 text-green-600 rounded'; // Vert pour CP
+                        case 'TT':
+                            return 'bg-blue-400 text-blue-600 rounded'; // Bleu pour TT
+                        default:
+                            return ''; // Aucune couleur par défaut
+                    }
+                },
+                fetchUsers() {
+                    fetch('https://x8ki-letl-twmt.n7.xano.io/api:jZfRiwME/user')
+                        .then(response => response.json())
+                        .then(data => {
+                            this.users = data;
+                            this.fetchAbsences();
+                        });
+                },
+
+                fetchAbsences() {
+                    const year = this.currentDate.getFullYear();
+                    const dayNumbers = this.days.map(day => day.dayNumber);
+
+                    const requestData = {
+                        test: dayNumbers,
+                        year: year
+                    };
+                    console.log("Données envoyées pour les absences:", requestData);
+                    fetch('https://x8ki-letl-twmt.n7.xano.io/api:jZfRiwME/day_missing_lecture_presence', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(requestData)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.absences = data;
+                        });
+                },
+
+                getAbsenceReason(dayNumber, userId) {
+                    const absence = this.absences.find(a => a.dayOfYear === dayNumber && a.utilisateurs_id === userId);
+                    return absence ? absence.missing : '-';
+                },
+
+                previousMonth() {
+                    console.log("before: ", this.currentDate);
+                    this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+                    console.log("After: ", this.currentDate);
+                    this.initializeDays();
+                    this.init();
+                    this.$nextTick(() => {
+                        this.currentDate = new Date(this.currentDate);  // force update
+                    });
+                },
+                nextMonth() {
+                    console.log("before: ", this.currentDate);
+                    this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+                    console.log("After: ", this.currentDate);
+                    this.initializeDays();
+                    this.init();
+                    this.$nextTick(() => {
+                        this.currentDate = new Date(this.currentDate);  // force update
+                    });
+                },
+            }
+        }
+
+    </script>
+</body>
+
+</html>
