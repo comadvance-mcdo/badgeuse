@@ -135,7 +135,7 @@
 
 
         function fetchCreditTimeForUser(userId) {
-            return fetch(`https://x8ki-letl-twmt.n7.xano.io/api:jZfRiwME/comptetempstotal?utilisateurs_id=${userId}`)
+            return fetch(`https://x8ki-letl-twmt.n7.xano.io/api:jZfRiwME/comptetempstotal?id_utilisateur=${userId}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data && data.length > 0) {
